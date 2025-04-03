@@ -1,9 +1,11 @@
-import Card from '@/components/Card'
+import ProductCard from '@/components/ProductCard'
 import { IProduct } from '@/types/IProduct.interface'
 
 async function getProducts(): Promise<IProduct[] | null> {
     try {
-        const response = await fetch(process.env.API_LINK!)
+        const response = await fetch(`${process.env.API_LINK!}/products`, {
+            cache: 'force-cache',
+        })
         const data = response.json()
 
         return data
@@ -22,7 +24,7 @@ export default async function Home() {
                 {products?.map((product) => {
                     return (
                         <li key={product.id}>
-                            <Card
+                            <ProductCard
                                 id={product.id}
                                 title={product.title}
                                 price={product.price}

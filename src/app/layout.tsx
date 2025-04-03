@@ -1,3 +1,4 @@
+import { Footer } from '@/components/Footer'
 import Header from '@/components/Header'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
@@ -31,6 +32,7 @@ export default function RootLayout({
                 <div className="h-screen flex flex-col">
                     <Header />
                     <main className="flex-1 container">{children}</main>
+                    <Footer />
                 </div>
             </body>
         </html>
